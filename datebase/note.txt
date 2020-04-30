@@ -1,0 +1,9 @@
+
+Datebase Name: 5432
+Datebase Username: postgres
+Datebase Password: postgres
+Datebase Name: dbsample
+Table Name: hotelpackage
+
+- Using postgreSQL database
+- Use db.txt to create a datebase table

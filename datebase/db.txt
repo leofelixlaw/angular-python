@@ -1,0 +1,22 @@
+-- Table: public.hotelpackage
+
+-- DROP TABLE public.hotelpackage;
+
+CREATE TABLE public.hotelpackage
+(
+    id uuid NOT NULL DEFAULT uuid_generate_v4(),
+    name character varying COLLATE pg_catalog."default" NOT NULL,
+    price character varying COLLATE pg_catalog."default" NOT NULL,
+    duration character varying COLLATE pg_catalog."default",
+    valid_duration character varying COLLATE pg_catalog."default",
+    description character varying COLLATE pg_catalog."default",
+    img_url character varying COLLATE pg_catalog."default",
+    CONSTRAINT hotelpackage_pkey PRIMARY KEY (id)
+)
+WITH (
+    OIDS = FALSE
+)
+TABLESPACE pg_default;
+
+ALTER TABLE public.hotelpackage
+    OWNER to postgres;

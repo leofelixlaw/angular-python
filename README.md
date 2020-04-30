@@ -1,2 +1,2 @@
 # angular-python
-doing sample with angular-python
+angular with python template
