@@ -1,2 +1,5 @@
-# angular-python
-doing sample with angular-python
+# Hotel packages
+Sample project to show hotel packages 
+frontend - angular
+backend - nodejs
+databse - postgreSQL
