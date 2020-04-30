@@ -1,0 +1,87 @@
+<div class="container">
+  <form class="mt-5 hotelpackage-form" #thisForm="ngForm">
+    <div class="row">
+      <div class="col-md-2">
+        <div class="form-group">
+          <label for="">Enter hotel name</label>
+          <input type="text" class="form-control form-control-sm" name="name" placeholder="Enter name"
+            [(ngModel)]="hotelpackage.name" required>
+        </div>
+      </div>
+      <div class="col-md-1">
+        <div class="form-group">
+          <label for="">Enter price</label>
+          <input type="number" min="0" class="form-control form-control-sm" name="price" placeholder="Enter Price"
+            [(ngModel)]="hotelpackage.price" required>
+        </div>
+      </div>
+      <div class="col-md-1">
+        <div class="form-group">
+          <label for="">Enter duration</label>
+            <select class="form-control form-control-sm" name="duration" [(ngModel)]="hotelpackage.duration">
+              <option value="">Select</option>
+              <option *ngFor="let i of [2,3,4,5,6,7,8]" [value]="i">{{i}}</option>
+            </select>
+        </div>
+      </div>
+      <div class="col-md-2">
+        <div class="form-group">
+          <label for="">Enter valid date</label>
+          <input class="form-control form-control-sm" [minDate]="minDate" placeholder="Enter Valid Date" name="dp" [(ngModel)]="date"
+            ngbDatepicker #d="ngbDatepicker" (click)="d.toggle()">
+        </div>
+      </div>
+      <div class="col-md-2">
+        <div class="form-group">
+          <label for="">Enter package description</label>
+          <input type="text" class="form-control form-control-sm" name="description" placeholder="Enter Description"
+            [(ngModel)]="hotelpackage.description" required>
+        </div>
+      </div>
+      <div class="col-md-2">
+        <div class="form-group">
+          <label for="">Enter image url</label>
+          <input type="text" class="form-control form-control-sm" name="img_url" placeholder="Enter Image URL"
+            [(ngModel)]="hotelpackage.img_url" required>
+        </div>
+      </div>
+      <div class="form-footer">
+        <button type="button" class="btn btn-primary btn-sm mr-2" [disabled]="thisForm.invalid" (click)="onSave()">
+          {{ id ? 'Update' : 'Add' }}
+        </button>
+        <button type="button" class="btn btn-danger btn-sm" [disabled]="!id" (click)="onDelete()">Delete</button>
+      </div>
+    </div>
+  </form>
+  <div class="row">
+    <div class="col">
+      <div *ngIf="items.length !== 0" class="table-responsive table-list mt-3">
+        <p class="mb-1"><b class="clr-theme">*</b> <small>Click on the list to edit or delete an Item</small> </p>
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th scope="col">Name</th>
+              <th scope="col">Price</th>
+              <th scope="col">Duration</th>
+              <th scope="col">Valid</th>
+              <th scope="col">Description</th>
+              <th scope="col">Image Url</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let item of items" (click)="onClick(item)">
+              <td>{{item.name}}</td>
+              <td>{{item.price}}</td>
+              <td>{{item.duration}} Day(s) {{item.duration - 1}} night(s)</td>
+              <td>{{ngbDate(item.valid_duration) | date}}</td>
+              <td>{{item.description}}</td>
+              <td><img [src]="item.img_url" width="25px" [alt]="item.img_url"></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+       <h3 *ngIf="items.length === 0" class="text-center text-muted mt-5">Add hotel packages</h3>
+    </div>
+
+  </div>
+</div>

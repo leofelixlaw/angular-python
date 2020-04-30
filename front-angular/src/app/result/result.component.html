@@ -1,0 +1,34 @@
+<div class="hero-banner">
+  <h3>Hot Hotel Packages</h3>
+  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil atque eum quos, animi ad</p>
+</div>
+
+<div class="container">
+  <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 mt-5">
+    <div class="col mb-4" *ngFor="let item of items">
+      <div class="card card-img-container">
+        <div class="card-img">
+          <img class="img-fluid" [src]="item.img_url || '../../assets/images/dummy.jpg'" [alt]="item.img_url">
+
+          <div class="card-absolute">
+              <span class="card-tag"> {{item.duration}} Day(s) {{item.duration - 1}} Night(s)</span>
+              <div class="price">
+                  From
+                  <strong>MYR {{item.price | number}}*</strong>
+                  per room per night
+                  <small>valid: {{ngbDate(item.valid_duration )| date}}</small>
+              </div>
+            </div>
+        </div>
+        <div class="card-body">
+            <h4 class="card-title">{{item.name}}</h4>
+            <p class="card-text">{{item.description}}</p>
+          </div>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="items.length === 0" class="text-center">
+      <img src="assets/images/no_data.svg" width="250" alt="">
+      <p>No packages found</p>
+  </div>
+</div>

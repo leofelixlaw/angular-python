@@ -1,0 +1,16 @@
+// (fonts)
+@import url('https://fonts.googleapis.com/css?family=Google+Sans:300,400,500,600,700');
+
+// (Bootstrap)
+@import "~bootstrap/scss/bootstrap.scss";
+
+// (Required file)
+@import 'variable';
+
+// (general)
+@import 'common';
+
+// (components)
+@import 'result';
+@import 'ngb';
+@import 'admin';

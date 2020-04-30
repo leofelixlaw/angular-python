@@ -1,0 +1,102 @@
+.hero-banner {
+  background-image: url('../images/hero-banner.jpg');
+  height: 200px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  background-position: 50%;
+  background-size: 100% auto;
+  background-attachment: fixed;
+  padding: 60px 20px;
+  color: $white;
+}
+.card-img-container{
+  padding: 0;
+  border-radius: 2px;
+  box-shadow: 0 2px 6px rgba($black,.25);
+  border: 0;
+  overflow: hidden;
+  cursor: pointer;
+  .card-{
+    &img{
+      width: 100%;
+      transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+      position: relative;
+      overflow: hidden;
+      border-radius: 0;
+      color: $white;
+      height: 190px;
+    }
+
+    &body{
+      font-size: 12px;
+      padding: 12px;        
+    }
+    &absolute {
+      background: linear-gradient(to bottom, rgba($black, 0) 0, rgba($black, 0.88) 99%, rgba($black, 0) 100%);
+      position: absolute;
+      bottom: 0px;
+      padding: 80px 12px 12px;
+      width: 100%;
+    }
+    &title{
+      margin-bottom: 5px;
+      font-size: 18px;
+    }
+    &text{
+      min-height: 40px;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      /* autoprefixer: ignore next */
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    &tag{
+      background: $theme;
+      position: relative;
+      left: 8px;
+      font-size: 11px;
+      padding: 0 6px;
+      margin-bottom: 8px;
+      display: inline-block;
+      &:before, &:after{
+        border: transparent solid 8px;
+        content: "";
+        position: absolute;
+        left: -8px;
+        bottom: 0;
+        z-index: 0;
+        border-top-color: $theme;
+        border-bottom-color: $theme;
+      }
+      &:after{
+        right: -8px;
+        left: auto;
+      }
+    }
+  }
+
+  .price {
+    font-size: 12px;
+    line-height: 20px;
+    strong {
+      font-weight: bolder;
+      display: block;
+      font-size: 22px;
+    }
+    small {
+      font-style: italic;
+      display: block;
+      line-height: 10px;
+      opacity: .8;
+      position: absolute;
+      right: 12px;
+      bottom: 12px;
+  }
+  }
+  &:hover .card-img img{
+    transform: scale(1.1);
+    transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+  }
+}
+
